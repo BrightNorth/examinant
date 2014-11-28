@@ -1,5 +1,6 @@
 (ns examinant.core
-  (:import [org.openqa.selenium.remote DesiredCapabilities RemoteWebDriver])
+  (:import [org.openqa.selenium.remote DesiredCapabilities RemoteWebDriver]
+           [org.openqa.selenium.support.ui ExpectedCondition WebDriverWait])
   (:require [clojure.java.io :refer [as-url]]
             [clojure.test :refer [testing]]
             [clojure.tools.logging :refer [debug info error]]))
@@ -34,3 +35,18 @@
       (error t "Error in examinant"))
     (finally
       (shutdown-agents))))
+
+
+(defn wait-until
+  "Instructs the driver to wait until the predicate returns true or the timeout (in seconds) expires, in which case a
+  TimeoutException is thrown.  The predicate will be re-tried over and over, so should be idempotent.  If no timeout is
+  specified, a default is used.  The predicate must take a single argument, which is the WebDriver."
+  ([driver predicate]
+    (wait-until driver predicate 20))
+  ([driver predicate timeout]
+    (let [wait (WebDriverWait. driver timeout)
+          expected-condition (proxy [ExpectedCondition] [] (apply [driver2]
+                                                             (let [result (predicate driver2)]
+                                                               (debug "Predicate attempted with result:" result)
+                                                               result)))]
+      (.until wait expected-condition))))
