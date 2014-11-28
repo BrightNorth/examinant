@@ -27,10 +27,8 @@
                              (future (testing (str "Capabilities: " browser-spec)
                                        (test driver)
                                        (.quit driver)))))]
-      (doall (map #(try
-                    (deref %)
-                    (catch Throwable t
-                      (error t "Failed to complete remote test:"))) result-futures)))
+      ;; TODO: handle when derefing a future throws an exception, and carry on derefing the others
+      (doall (map deref result-futures)))
     (catch Throwable t
       (error t "Error in examinant"))
     (finally
@@ -47,6 +45,5 @@
     (let [wait (WebDriverWait. driver timeout)
           expected-condition (proxy [ExpectedCondition] [] (apply [driver2]
                                                              (let [result (predicate driver2)]
-                                                               (debug "Predicate attempted with result:" result)
                                                                result)))]
       (.until wait expected-condition))))
