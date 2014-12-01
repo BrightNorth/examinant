@@ -32,9 +32,9 @@
                                    ;; Throwing an exception would cause clojure.test to abort all
                                    ;; the other remote tests, so we wrap it in an assertion instead
                                    (catch Throwable t
-                                     (is (nil? (format "test: %s Capabilities: %s Throwable: %s"
+                                     (is (nil? (format "Test: %s Capabilities: %s Throwable: %s"
                                                        test browser-spec (str t)))
-                                       "Examinant caught throwable in remote test")))
+                                       "Examinant caught throwable in remote test:")))
                                  (.quit driver)))))]
       ;; TODO: handle when derefing a future throws an exception, and carry on derefing the others
       (doall (map deref result-futures)))
