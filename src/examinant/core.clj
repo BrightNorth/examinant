@@ -14,6 +14,7 @@
                          desired-capabilities)
         desired-capabilities (reduce set-capability (DesiredCapabilities.) browser-spec)]
     (debug "Creating RemoteWebDriver with capabilities:" desired-capabilities)
+    ;; SauceLabs doesn't seem to have an SSL endpoint, so sending creds in the URL is a bit dubious
     (RemoteWebDriver. (as-url url) desired-capabilities)))
 
 
