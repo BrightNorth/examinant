@@ -13,7 +13,7 @@
                          (.setCapability desired-caps (name (first browser-spec)) (second browser-spec))
                          desired-caps)
         desired-capabilities (reduce set-capability (DesiredCapabilities.) browser-spec)]
-    (debug "Creating RemoteWebDriver with capabilities:" (str desired-capabilities))
+    (debug "Creating RemoteWebDriver:" (str desired-capabilities))
     ;; SauceLabs doesn't seem to have an SSL endpoint, so sending creds in the URL is a bit dubious
     (RemoteWebDriver. (as-url url) desired-capabilities)))
 
@@ -39,7 +39,7 @@
       ;; TODO: handle when derefing a future throws an exception, and carry on derefing the others
       (doall (map deref result-futures)))
     (catch Throwable t
-      (error t " Error in examinant "))
+      (error t "Error in examinant "))
     (finally
       (shutdown-agents))))
 
