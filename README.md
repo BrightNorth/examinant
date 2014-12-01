@@ -2,7 +2,7 @@
 
 Examinant is a lightweight library that wraps the
 [RemoteWebDriver](https://selenium.googlecode.com/git/docs/api/java/org/openqa/selenium/remote/RemoteWebDriver.html)
-from the Selenium Java API so that it can be used to run parallel tests against a remote testing service such as
+class from the Selenium Java API so that it can be used to run parallel tests against a remote testing service such as
 [SauceLabs](https://saucelabs.com/).  Unlike [clj-webdriver](https://github.com/semperos/clj-webdriver), very little
 attempt has been made to wrap the Java methods exposed by the API with Clojure functions.
 
