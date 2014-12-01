@@ -1,3 +1,5 @@
+[![Clojars Project](http://clojars.org/brightnorth/examinant/latest-version.svg)](http://clojars.org/brightnorth/examinant)
+
 # Examinant
 
 Examinant is a lightweight library that wraps the
