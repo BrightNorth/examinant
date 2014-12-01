@@ -21,10 +21,6 @@ Add the following dependency to your project.clj file:
 
 ## Usage
 
-Add examinant to your project using leiningen:
-
-
-
 Neither clojure.test nor Midje currently supports parallel testing.  As Examinant runs tests in parallel in their own
 threads (using Clojure [future](https://clojuredocs.org/clojure.core/future)s), remote tests cannot be split up using
 `deftest` or `fact`; they must all be executed as a single test; for that we use clojure.test, but Midje will happily
