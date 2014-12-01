@@ -9,6 +9,8 @@
 
   :plugins [[lein-release "1.1.3"]]
 
+  :lein-release {:deploy-via :clojars}
+
   :dependencies [[clj-webdriver "0.6.1"]
                  [org.clojure/clojure "1.6.0"]
                  [org.clojure/tools.logging "0.3.1"]
