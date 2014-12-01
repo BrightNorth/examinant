@@ -1,4 +1,4 @@
-(defproject brightnorth/examinant "0.1.2"
+(defproject brightnorth/examinant "0.1.3-SNAPSHOT"
 
   :description "A library for running parallel remote WebDriver tests on remote infrastructure"
 
