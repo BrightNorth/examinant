@@ -1,4 +1,4 @@
-(defproject examinant "0.1.0-SNAPSHOT"
+(defproject examinant "0.1.0"
 
   :description "A library for running parallel remote WebDriver tests on remote infrastructure"
 

@@ -12,7 +12,18 @@ extremely uninstrusive way that means it can easily be used with [Midje](https:/
 projects.
 
 
+## Installation
+
+Add the following dependency to your project.clj file:
+
+    [examinant "0.1.0"]
+
+
 ## Usage
+
+Add examinant to your project using leiningen:
+
+
 
 Neither clojure.test nor Midje currently supports parallel testing.  As Examinant runs tests in parallel in their own
 threads (using Clojure [future](https://clojuredocs.org/clojure.core/future)s), remote tests cannot be split up using
