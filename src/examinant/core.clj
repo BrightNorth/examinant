@@ -50,7 +50,7 @@
   be idempotent. If no timeout is specified, a default is used. The predicate must take a single
   argument, which is the WebDriver."
   ([driver predicate]
-    (wait-until driver predicate 20))
+    (wait-until driver predicate 60))
   ([driver predicate timeout]
     (let [wait (WebDriverWait. driver timeout)
           expected-condition (proxy [ExpectedCondition] [] (apply [driver2]
