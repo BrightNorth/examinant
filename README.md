@@ -18,7 +18,7 @@ projects.
 
 Add the following dependency to your project.clj file:
 
-    [examinant "0.1.1"]
+    [examinant "0.1.2"]
 
 
 ## Usage
