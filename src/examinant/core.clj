@@ -1,6 +1,7 @@
 (ns examinant.core
   (:import [org.openqa.selenium.remote DesiredCapabilities RemoteWebDriver]
-           [org.openqa.selenium.support.ui ExpectedCondition WebDriverWait])
+           [org.openqa.selenium.support.ui ExpectedCondition WebDriverWait]
+           [java.util.concurrent Executors])
   (:require [clojure.java.io :refer [as-url]]
             [clojure.test :refer [is testing]]
             [clojure.tools.logging :refer [debug info error]]))
@@ -19,8 +20,12 @@
 
 
 (defn remote-tests
-  "Runs each of the specified tests once for each browser-spec, using the remote server at url"
-  [url browser-specs tests]
+  "Runs each of the specified tests once for each browser-spec, using the remote server at url.  If concurrency is
+  specified, will limit the number of parallel threads in use."
+  ([url browser-specs tests concurrency]
+    (set-agent-send-executor! (Executors/newFixedThreadPool concurrency))
+    (remote-tests url browser-specs tests))
+  ([url browser-specs tests]
   (try
     (let [result-futures (for [test tests
                                browser-spec browser-specs]
@@ -41,7 +46,7 @@
     (catch Throwable t
       (error t "Error in examinant "))
     (finally
-      (shutdown-agents))))
+      (shutdown-agents)))))
 
 
 (defn wait-until
