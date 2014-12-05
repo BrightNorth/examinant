@@ -7,8 +7,6 @@
   :license {:name "Eclipse Public License"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
 
-  ;:plugins [[lein-release "1.0.6"]]
-
   :lein-release {:deploy-via :clojars}
 
   :dependencies [[clj-webdriver "0.6.1"]
