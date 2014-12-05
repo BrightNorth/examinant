@@ -16,9 +16,7 @@ projects.
 
 ## Installation
 
-Add the following dependency to your project.clj file:
-
-    [examinant "0.1.2"]
+Add the dependency in the [Clojars](http://clojars.org/brightnorth/examinant) badge above to your `project.clj`.
 
 
 ## Usage
