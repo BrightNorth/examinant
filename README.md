@@ -48,7 +48,8 @@ execute that test for us when we run a `lein midje`.
                      :device-orientation :portrait}])
 
 
-;; Each test is just a function taking the RemoteWebDriver as an argument; note the use of the clojure.test/is macro
+;; Each test is just a function taking the RemoteWebDriver as an argument; 
+;; note the use of the clojure.test/is macro
 (defn google-logo
   "Checks whether the google logo has the correct title"
   [^RemoteWebDriver driver]
