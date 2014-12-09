@@ -23,7 +23,7 @@
   "Runs each of the specified tests once for each browser-spec, using the remote server at url.  If concurrency is
   specified, will limit the number of parallel threads in use."
   ([url browser-specs tests concurrency]
-    (set-agent-send-executor! (Executors/newFixedThreadPool concurrency))
+    (set-agent-send-off-executor! (Executors/newFixedThreadPool concurrency))
     (remote-tests url browser-specs tests))
   ([url browser-specs tests]
   (try
