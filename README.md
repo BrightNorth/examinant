@@ -43,9 +43,9 @@ execute that test for us when we run a `lein midje`.
 (def browser-specs [{:browserName "chrome" :version "38" :platform "Windows 8.1"}
                     {:browserName "safari" :version "8" :platform "OS X 10.10"}
                     {:browserName "android" :version "4.4" :platform "LINUX"
-                     :device-orientation :portrait :deviceName "Google Nexus 7 HD Emulator"}
+                     :device-orientation "portrait" :deviceName "Google Nexus 7 HD Emulator"}
                     {:browserName "iPhone" :version "8.1" :platform "OS X 10.9"
-                     :device-orientation :portrait}])
+                     :device-orientation "portrait"}])
 
 
 ;; Each test is just a function taking the RemoteWebDriver as an argument; 
